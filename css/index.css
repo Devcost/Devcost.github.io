@@ -104,6 +104,28 @@ html, body {
 	display: none;
 }
 
+@media screen and (max-width: 1024px) and (min-width: 769px){
+
+	.datos .webdev{
+		font-size: 30px!important;
+	}
+
+	.work{
+		font-size: 30px!important;
+	}
+
+	.pag_container{
+		box-sizing: border-box!important;
+		width: 100%!important;
+	}
+
+	.pagina{
+		width: 50%!important;
+		box-sizing: border-box!important;
+
+	}
+}
+
 @media screen and (max-width: 768px) and (min-width: 0px){
 
 	.datos{
