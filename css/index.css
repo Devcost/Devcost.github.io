@@ -103,3 +103,72 @@ html, body {
 .pagina .descrip{
 	display: none;
 }
+
+@media screen and (max-width: 768px) and (min-width: 0px){
+
+	.datos{
+		padding: 60px 0;
+		background: #833ab4;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #fcb045, #fd1d1d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	}
+
+	.datos .webdev{
+		font-size: 25px;
+	}
+
+	.work{
+		padding-top: 50px;
+		text-align: center;
+		font-size: 25px;
+
+	}
+
+	.pag_container{
+		box-sizing: border-box!important;
+		display: block!important;
+		width: 100%!important;
+	}
+
+	.pagina{
+		display: table;
+		box-sizing: border-box!important;
+		margin: 0 auto 20px auto!important;
+		text-align: center!important;
+	}
+
+	.pagina img{
+		width: 95%!important;
+		max-width: 650px!important;
+		border-radius: 5px;
+	}
+
+	.pagina .img_skill{
+	}
+
+	.hechos .pagina .pagina_skill{
+		display: none;
+		position: initial;
+		transform: translate(0%,0%);
+		padding: 8px;
+		border-radius: 3px;
+		cursor: pointer;
+		color: white;
+		font-weight: 900;
+		z-index: 100000000000;
+	}
+
+	.descrip{
+		display: table!important;
+		margin: auto;
+		background-color: rgba(240,240,240,0.5);
+		font-family: 'Poppins', sans-serif;		
+		font-size: 18px;
+		color: rgba(0,40,100,0.8);
+		border: 2px solid rgba(0,40,100,0.6);
+		border-bottom: 4px solid rgba(0,40,100,0.6);
+		border-radius: 5px;
+		padding: 10px 15px;
+		margin-top: 20px;
+	}
+}
