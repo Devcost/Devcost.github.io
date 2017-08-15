@@ -1,0 +1,13 @@
+html, body {
+	padding: 0;
+	margin: 0;
+}
+
+.fixed-bg {
+	background-image: url("http://imgur.com/a/ph8Gk");
+	position: fixed;
+	background-size: cover;
+	width: 100%;
+  	height: 100%;
+  	z-index: -1;
+}
