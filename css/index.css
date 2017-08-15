@@ -44,3 +44,62 @@ html, body {
 	color: rgba(255,255,255,0.9);
 	font-family: 'Raleway', sans-serif;
 }
+
+.hechos{
+	padding-top: 50px;
+	padding-bottom: 150px;
+}
+
+.hechos .pag_container{
+	margin: auto;
+	width: 1000px;
+	display: flex;
+}
+
+.hechos .pagina{
+	text-align: center;
+	margin: 50px 12px 0 12px;
+	position: relative;
+}
+
+.hechos .pagina .pagina_skill{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	border-top: 1px solid white;
+	border-bottom: 3px solid white;
+	border-right: 1px solid white;
+	border-left: 1px solid white;
+	background-color: rgba(150,150,150,0.4);
+	padding: 8px;
+	border-radius: 3px;
+	display: none;
+	cursor: pointer;
+	color: white;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 900;
+	/*font-family: 'Poppins', sans-serif;*/
+	/*font-family: 'Kaushan Script', cursive;*/
+	z-index: 100000000000;
+}
+
+.pagina img{
+	z-index: 10000;
+	width: 100%;
+	border-radius: 10px;
+	cursor: pointer;
+	vertical-align: top;
+	box-shadow: 3px 3px 8px rgba(40,40,40,0.5);
+}
+
+.pagina .img_skill{
+	display: table;
+	position: relative;
+}
+
+.pagina .descrip{
+	display: none;
+}
