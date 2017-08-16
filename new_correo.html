@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/new_correo.css">
+
+</head>
+<body>
+
+<div class="correo">
+	
+	<div class="invitando">Contact</div>
+		
+	<div class="show_error"></div>
+
+	<form name="nameForm" id="idForm" method="POST">
+		<div class="persona">
+
+			<input oninput="cortar(this);" type="text" name="nombre" placeholder="Name" maxlength="100">
+							
+			<input oninput="cortar(this)" type="email" name="email" placeholder="Email" maxlength="100">
+	
+			<input oninput="cortar(this)" type="text" name="subject" placeholder="Subject" maxlength="200">
+			
+		</div>
+		
+		<div class="mensaje">			
+			<textarea oninput="cortar(this);" name="mensaje" placeholder="Message" maxlength="1000"></textarea>
+		</div>
+		
+		<div class="enviar">
+			<input type="submit" value="Send"></input>
+		</div>
+	</form>
+
+</div>
+
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/new_correo.js" type="text/javascript"></script>
+
+</body>
+</html>
