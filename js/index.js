@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$("#includedContent").load("new_correo.html"); 
+	$("#includedContent").load("../new_correo.html"); 
 
 	//ANIMACION DE NAVBAR   ->
 	var puesto = true;
