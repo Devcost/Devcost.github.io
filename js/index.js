@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$("#includedContent").load("new_correo.html"); 
+
 	//ANIMACION DE NAVBAR   ->
 	var puesto = true;
 	var arriba = $(".hechos").offset().top;
