@@ -29,14 +29,17 @@
 .invitando{
 	/*background-color: rgb(159,205,77);*/
 	/*background-color: rgb(136,0,21);*/
-	background-color: rgba(40,80,120,0.7);	
+	/*background-color: rgba(40,80,120,0.7);*/
 	color: white;
 	text-align: center;
 	font-size: 18px;
 	font-family: 'Raleway', sans-serif;
 	padding: 8px 0;
-	border-top: 2px solid rgba(255,255,255,0.5);
+	/*border-top: 2px solid rgba(255,255,255,0.5);*/
 	border-bottom: 2px solid rgba(255,255,255,0.5);
+	background: #833ab4;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #idForm{
