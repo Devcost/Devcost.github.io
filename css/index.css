@@ -142,14 +142,17 @@ html, body {
 	}
 
 	.datos .webdev{
-		font-size: 25px;
+		font-size: calc(13px + 2vw);
 	}
 
 	.work{
 		padding-top: 50px;
 		text-align: center;
 		font-size: 25px;
+	}
 
+	.langs{
+		font-size: calc(12px + 2vw)!important;
 	}
 
 	.pag_container{
