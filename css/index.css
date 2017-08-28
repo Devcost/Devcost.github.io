@@ -177,6 +177,10 @@ html, body {
 	.pagina .img_skill{
 	}
 
+	.hechos{
+		padding-bottom: 80px;		
+	}
+
 	.hechos .pagina .pagina_skill{
 		display: none;
 		position: initial;
