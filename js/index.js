@@ -182,4 +182,39 @@ $(document).ready(function(){
 		}
 	}
 
+	////////////////////////cambio.js
+	$('.ambas').on("click", function () {
+ 		$('.one').toggleClass('rotate');
+ 		$('.two').toggleClass('rotatex');
+ 		$('.mitad').toggleClass('hide');
+ 		$('.rayas').toggleClass('rayas-space');
+	});
+
+	$(window).resize(function(){
+		if (window.matchMedia('(min-width: 768px)').matches) {   
+        	$('.one').removeClass('rotate');
+ 			$('.two').removeClass('rotatex');
+ 			$('.mitad').removeClass('hide');
+ 			$('.rayas').removeClass('rayas-space');
+    	} 
+	});
+	////////////////////////
+
+	////////////navbar.js
+	$("#show").click(function(){		
+		$(".menu-mobile").stop().toggle("slide");            //ABRE EL MENU 		
+	});
+	
+	// SI EL MENU ESTÁ ABIERTO 
+	//Y EL ANCHO DE LA PANTALLA CAMBIA 
+	//A MAS DE 767PX, 	
+	//SE CIERRA EL MENÚ AUTOMÁTICAMENTE
+
+	$(window).resize(function(){
+		if (window.matchMedia('(min-width: 768px)').matches) {   
+			$(".menu-mobile").css("display","none");
+    	} 
+	});
+	////////////
+
 });
