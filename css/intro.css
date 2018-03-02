@@ -1,0 +1,169 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: rgb(50,50,50);
+}
+
+.space{
+	/*height: 100px;*/
+	width: 100%;
+}
+
+.container{
+	padding: 0 10px 0 10px;
+	width: 1160px;
+	/*background-color: red;¨*/
+	margin: auto;
+	display: table;
+}
+
+.cuadro{
+	margin: 10px 10px 0 10px;
+	width: 270px;
+	height: 350px;
+	border-radius: 10px;
+	float: left;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.uno{
+	background-image: url("../girlsix.png");
+}
+
+.dos{
+	background-image: url("../girlseven.png");
+}
+
+.tres{
+	background-image: url("../girlsocho.png");
+}
+
+.four{
+	background-image: url("../girlten.png");
+
+}
+
+@media screen and (max-width: 1200px) and (min-width: 940px){
+	.container{
+		width: 900px; 
+	}
+
+	.cuadro{
+		height: 275px;
+		width: 205px
+	}
+}
+
+@media screen and (max-width: 939px) and (min-width: 715px){
+	.container{
+		width: 675px; 
+	}
+
+	.cuadro{
+		height: 275px;
+		width: 205px
+	}
+}
+
+@media screen and (max-width: 714px) and (min-width: 575px){
+	.container{
+		width: 554px; 
+		padding: 0 2px 0 2px;
+	}
+
+	.cuadro{
+		height: 355px;
+		width: 275px;
+		margin: 2px 1px 0 1px;
+		border-radius: 0px;
+	}
+}
+
+@media screen and (max-width: 574px) and (min-width: 520px){
+	.container{
+		margin: auto;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0px 2px 0px 2px;
+	}
+
+	.cuadro{
+		width: 49.6%;
+		height: 61.7vw;
+		/*width: 48.1vw;*/
+		margin: 2px 2px 0px 0px;
+		border-radius: 0px;
+
+	}
+}
+
+@media screen and (max-width: 520px) and (min-width: 420px){
+	.container{
+		margin: auto;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0px 2px 0px 2px;
+	}
+
+	.cuadro{
+		width: 49.5%;
+		height: 61.7vw;
+		/*width: 48.1vw;*/
+		margin: 2px 2px 0px 0px;
+		border-radius: 0px;
+
+	}
+}
+
+@media screen and (max-width: 419px) and (min-width: 352px){
+	.container{
+		margin: auto;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0px 2px 0px 2px;
+	}
+
+	.cuadro{
+		width: 49.4%;
+		height: 61.7vw;
+		/*width: 48.1vw;*/
+		margin: 2px 2px 0px 0px;
+		border-radius: 0px;
+	}
+}
+
+@media screen and (max-width: 351px) and (min-width: 305px){
+	.container{
+		margin: auto;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0px 2px 0px 2px;
+	}
+
+	.cuadro{
+		width: 49.3%;
+		height: 61.7vw;
+		/*width: 48.1vw;*/
+		margin: 2px 2px 0px 0px;
+		border-radius: 0px;
+	}
+}
+
+@media screen and (max-width: 304px) and (min-width: 0px){
+	.container{
+		margin: auto;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0px 0px 0px 2px;
+	}
+
+	.cuadro{
+		width: 49.21%;
+		height: 61.7vw;
+		/*width: 48.1vw;*/
+		margin: 2px 2px 0px 0px;
+		border-radius: 0px;
+	}
+}

@@ -1,81 +1,185 @@
 $(document).ready(function(){
 
-	$("#includedContent").load("../new_correo.html"); 
-
-	//ANIMACION DE NAVBAR   ->
-	var puesto = true;
-	var arriba = $(".hechos").offset().top;
-
-	$(window).scroll(function(){
-				
-		var scroll = $(window).scrollTop();
-				
-		if(scroll >= arriba){
-			$(".navbar").fadeIn(500);
-		}
-		else{
-			$(".navbar").fadeOut(500);
-		}
-			
-	});
-	//ANIMACION DE NAVBAR   <-
-
-	// AL HACER CLICK EN BOTON ->
-	$("#quick").on("click",function(){
-		alert("I'm updating this information.");
-	});
-	// AL HACER CLICK EN BOTON <-
-
-	// ANIMACION DEL CAMBIO DE PALABRA DEL SUBTÍTULO   ->
-
-	palabras = ["build","design","code","test","do","build, design, code, test & do"];
-
-	function cambio(){
-
-		var vaPor = 1;
-				
-		otro = setInterval(intervalo,1500);
-				
-		function intervalo(){
-			if(vaPor == palabras.length - 1){
-				clearInterval(otro);
-			}
-					
-			$("#change").fadeOut(500,function(){
-				$(this).text(palabras[vaPor]).fadeIn(500);
-				vaPor++;
-			});
-
-		}
-	}
-
-	cambio();
+	var vacio = false;
+	var serviceButton = document.getElementsByClassName("botonSolicitar");
+	var $root = $('html, body');
+	var spaceRoot = 80;
 	
-	// ANIMACION DEL CAMBIO DE PALABRA DEL SUBTÍTULO   <-
+	// SCROLL FROM TOP -->
 
-	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	$(".productos").on("click", function(event){
+		/*event.preventDefault();*/
+		$root.animate({scrollTop: $(".dad").offset().top - spaceRoot }, 'slow');
+	});
 
-		// some code..
+	$(".precios").on("click", function(event){
+		/*event.preventDefault();*/
+		$root.animate({scrollTop: $(".correo").offset().top }, 'slow');
+	});
 
+	// <-- SCROLL FROM TOP
+
+	for (var i = 0;i < serviceButton.length;i++){
+		serviceButton[i].addEventListener("click", showMessage);
 	}
 
-	else{
+	$("#ex").on("click",function(){
+		$("#opaco").css("display","none");
+		
+		$("#idForm input").css("border","1px solid rgb(170,170,170)");
 
-		// ANIMACION DE LAS IMAGENES DE LAS PAGINAS WEB  ->
-		$(".img_skill").mouseenter(function(){
-			if($(window).width() >= 768){
-				$(this).children("img").css("filter","brightness(70%)");		
-				$(this).children(".pagina_skill").fadeIn();
-			}
-
+		$("#idForm").each(function(){
+			this.reset();
 		});
 
-		$(".img_skill").mouseleave(function(){
-			if($(window).width() >= 768){
-				$(this).children("img").css("filter","brightness(100%)");		
-				$(this).children(".pagina_skill").fadeOut();
-			}
-		});
-		// ANIMACION DE LAS IMAGENES DE LAS PAGINAS WEB  <-
+		$("#totalProductoShow label").text("$0");
+	});
+
+
+	$("#idForm input").not(':input[type=button], :input[type=submit], :input[type=reset]').on("input",function(e){
+		if(vacio){
+			$(this).css("border","1px solid rgb(170,170,170)");
+		}
+	});
+
+	$("#idForm").submit(function(e){
+		var productoPedido = $("#nombre_producto").text();
+		
+		vacio = false;
+
+		var url = "correo.php";
+		
+		/*var url = "http://52.89.149.92/lamce/correo.php";*/
+
+		validarForm();
+
+		if(!vacio){
+			$.ajax({
+				type: "POST",
+				url: url,
+				crossDomain: true,
+				data: $("#idForm").serialize(),
+				success: function(data){
+					/*$(".sms_error").css('color','green').text("El mensaje ha sido enviado.");*/
+					
+					$("#idForm").each(function(){
+						this.reset();
+					});
+				}
+			});
+		}
+		e.preventDefault();
+	});
+
+		function addCommas(nStr) {
+	    nStr += '';
+	    var x = nStr.split('.');
+	    var x1 = x[0];
+	    var x2 = x.length > 1 ? '.' + x[1] : '';
+	    var rgx = /(\d+)(\d{3})/;
+	    while (rgx.test(x1)) {
+	        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	    }
+	    return x1 + x2;
 	}
+
+	function showMessage(){
+		$("#opaco").css("display","block");
+		//var chosen = $(this).siblings(".float_nombre").text();
+		var chosen = $(this).parent(".solicitar").siblings(".listaNombre").text();
+		//var chosenPrice = $(this).siblings(".float_precio").text();
+		var chosenPrice = $(this).parent(".solicitar").siblings(".listaPrecio").text();
+		$("#nombreProductoShow").html("<h2>"+chosen+"</h2>");
+		$("#nombreProductoHidden").val(chosen);
+		$("#precio_producto").text("Precio: "+chosenPrice+" / Kg");
+		
+		$("#idForm").each(function(){
+			this.reset();
+		});
+
+		// EVITA EDICION DEL NOMBRE DEL PRODUCTO EN INPUT
+		$("#nombreProducto").on("change",function(){
+			$(this).val(chosen);
+		});
+
+		$("#kilos").on("keyup",function(){
+			
+			var unidadVenta = 1000; //SI SE VENDE POR KILO, unidadVenta = 1, TONELADA = 1000; 
+			var numKilos = $(this).val();
+			
+			chosenPrice = chosenPrice.replace(/\D/g,'');
+			var precioMaximo = 20*chosenPrice*unidadVenta;
+			precioMaximo = addCommas(precioMaximo);
+			var precioSinPunto = chosenPrice*numKilos*unidadVenta;
+			precioSinPunto = addCommas(precioSinPunto);
+			$("#totalProductoShow label").text("$"+precioSinPunto);
+			$("#totalProductoHidden").val(precioSinPunto);
+
+			if(numKilos>20){
+				$(this).val(20);
+				$("#totalProductoShow label").text("$"+precioMaximo);
+				$("#totalProductoHidden").val(precioMaximo);
+			}
+			
+		});
+
+		return chosen;
+	}
+
+	function validarForm(){
+
+		vacio = false;
+
+		var telefono = document.forms["nameForm"]["telefono"].value;
+		var direccion = document.forms["nameForm"]["direccion"].value;
+		var email = document.forms["nameForm"]["email"].value;
+		var kilos = document.forms["nameForm"]["kilos"].value;
+		var total = document.forms["nameForm"]["total"].value;
+
+		var type_direccion = typeof(direccion);
+		var type_email = typeof(email);
+
+		if ( !direccion.trim() || type_direccion != "string"){
+			var falta_direccion = true;
+		}
+
+		if ( !email.trim() || type_email != "string"){
+			var falta_email= true;
+		}
+
+		if( !telefono.trim() ){
+			var falta_telefono = true;
+		}
+
+		if ( !kilos.trim() ){
+			var falta_kilos = true;
+		}
+
+		//SI HAY ALGUN INPUT O TEXTAREA VACIO O QUE SEAN PUROS ESPACIOS EN BLANCO
+		if(falta_direccion || falta_email || falta_telefono){ 
+
+			if( falta_direccion ){     //SI DIRECCION ESTA VACIO O ES PURO ESPACIO
+				$("#idForm :input[name=direccion]").css("border","2px solid rgb(190,75,73)");
+			}
+
+			if( falta_email ){   //SI EMAIL ESTA VACIO O ES PURO ESPACIO
+				$("#idForm :input[name=email]").css("border","2px solid rgb(190,75,73)");
+			}
+
+			if( falta_telefono ){   //SI TELEFONO ESTA VACIO O ES PURO ESPACIO	
+				$("#idForm :input[name=telefono]").css("border","2px solid rgb(190,75,73)");
+			}
+
+			if( falta_kilos ){   //SI TELEFONO ESTA VACIO O ES PURO ESPACIO	
+				$("#idForm :input[name=kilos]").css("border","2px solid rgb(190,75,73)");
+			}
+						
+			/*$(".show_error").text("Completa los campos con la información requerida.").css('background-color','rgb(190,75,73)');*/
+			170
+			vacio = true;
+			
+			return false;
+		}
+	}
+
 });
