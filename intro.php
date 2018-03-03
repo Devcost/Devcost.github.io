@@ -20,5 +20,7 @@
 	<div class="cuadro dos" ></div>
 </div>
 
+<div class="space"></div>
+
 </body>
 </html>

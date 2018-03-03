@@ -5,7 +5,7 @@ body{
 }
 
 .space{
-	/*height: 100px;*/
+	height: 100px;
 	width: 100%;
 }
 
@@ -18,7 +18,7 @@ body{
 }
 
 .cuadro{
-	margin: 10px 10px 0 10px;
+	margin: 30px 10px 0 10px;
 	width: 270px;
 	height: 350px;
 	border-radius: 10px;
@@ -29,19 +29,19 @@ body{
 }
 
 .uno{
-	background-image: url("../girlsix.png");
+	background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ),url("../girlsix.png");
 }
 
 .dos{
-	background-image: url("../girlseven.png");
+	background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ),url("../girlseven.png");
 }
 
 .tres{
-	background-image: url("../girlsocho.png");
+	background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ),url("../girlsocho.png");
 }
 
 .four{
-	background-image: url("../girlten.png");
+	background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ),url("../girlten.png");
 
 }
 
